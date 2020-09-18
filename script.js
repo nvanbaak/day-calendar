@@ -1,6 +1,9 @@
 // Initial function calls
 
-populatePlanner(8, 18);
+const START = 8;
+const END = 18;
+
+populatePlanner(START, END);
 
 
 function populatePlanner(startTime, endTime) {
@@ -35,20 +38,26 @@ function populatePlanner(startTime, endTime) {
     //    Create HTML Structure
     // ===========================
 
-    
+
     for (i = startTime; i < endTime; i++) {
 
         // create row and columns 
         var newRow = $("<div>", {"class": 'row'});
 
-        var dateCol = $("<div>", {"class": 'col-md-3'});
-        var saveCol = $("<div>", {"class": 'col-md-3'});
-        
-        // For the content colum nwe also assign the text
-        var contentCol = $("<div>", {"class": 'col-md-9'}).text(plannerContent[i].content);
+        // We put an id on the row to reference its contents
+        var findMe = "row-" + i;
+        newRow.addClass(findMe);
 
-        // Add save icon to save column
-        saveColCol.append($("<i>"), {"class": "fas fa-save"});
+        // Add time column
+        var timeCol = $("<div>", {"class": 'col-md-2 time-block hour'});
+        var newTime = $("<p>", {"class": "centerText"})
+        timeCol.append(newTime);
+        
+        // For the content column we also assign the text
+        var contentCol = $("<div>", {"class": 'col-md-8'}).text(plannerContent[i].content);
+
+        // Add save column (which is secretly a button, shh)
+        var saveCol = $("<button>", {"class": "saveBtn col-md-2"}).text("Save");
         
         // =======================
         //       Assign hour
@@ -69,9 +78,9 @@ function populatePlanner(startTime, endTime) {
             hourContent += ":00 AM";
         }
 
-        dateCol.text(hourContent);
+        newTime.text(hourContent);
 
-
+        updatePlannerColors();
 
         
         
@@ -79,10 +88,19 @@ function populatePlanner(startTime, endTime) {
         
         
         // Append up the chain
-        newRow.append(dateCol);
+        newRow.append(timeCol);
         newRow.append(contentCol);
         newRow.append(saveCol)
         
         $(".container").append(newRow);
     }
+}
+
+
+function updatePlannerColors() {
+
+
+
+
+
 }

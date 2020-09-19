@@ -5,4 +5,15 @@
 * Users can click on a block of time and enter text
 * Clicking a time block's save button saves the currently entered text
 * Saved text persists across page loads
-* Time blocks are color-coded 
+* Time blocks are color-coded based on whether we've gotten there yet
+* Planner checks periodically to see whether colors need to update
+
+## Day Calendar in Action
+
+[!localStorage](.Assets/ls-sspng)
+
+[!colorsUpdating](.Assets/colors-ss.png)
+
+## Check out the website!
+
+> 

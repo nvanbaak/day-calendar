@@ -10,9 +10,9 @@
 
 ## Day Calendar in Action
 
-[!localStorage](url(.Assets/ls-ss.png))
+![localStorage](.Assets/ls-ss.png)
 
-[!colorsUpdating](url(.Assets/colors-ss.png))
+![colorsUpdating](.Assets/colors-ss.png)
 
 ## Check out the website!
 

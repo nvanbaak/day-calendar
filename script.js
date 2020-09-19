@@ -26,6 +26,10 @@ if (plannerContent === null) {
     plannerContent = JSON.parse(plannerContent);
 }
 
+var todayString = moment().format("dddd, MMM do YYYY");
+$("#datespan").text(todayString);
+
+
 populatePlanner(START, END);
 
 function populatePlanner(startTime, endTime) {

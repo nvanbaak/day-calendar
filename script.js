@@ -127,6 +127,32 @@ function populatePlanner(startTime, endTime) {
 
         localStorage.setItem("plannerData", JSON.stringify(plannerContent));
     })
-
-
 }
+
+setInterval( function() {
+    // Updates planner colors
+
+    // Get current time
+    var now = moment().hour();
+
+    for (i = START; i < END; i++) {
+
+        // Get the reference for the time block
+        var refClass = ".findme-" + i;
+        eventArea = $(refClass);
+
+        // Remove all classes but the layout and reference ones
+        newClasses = refClass + " col-md-8";
+        eventArea.attr("class", newClasses);
+
+        // Check if the current hour is ahead of, behind, or equal to the row we're working with and assign the relevant class
+        if (i < now) {
+            eventArea.addClass("past");
+        } else if (i === now) {
+            eventArea.addClass("present");
+        } else {
+            eventArea.addClass("future");
+        }
+    }
+        
+    }, 1000);

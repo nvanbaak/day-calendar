@@ -10,10 +10,10 @@
 
 ## Day Calendar in Action
 
-[!localStorage](.Assets/ls-sspng)
+[!localStorage](url(.Assets/ls-ss.png))
 
-[!colorsUpdating](.Assets/colors-ss.png)
+[!colorsUpdating](url(.Assets/colors-ss.png))
 
 ## Check out the website!
 
-> 
+> https://nvanbaak.github.io/day-calendar/

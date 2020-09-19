@@ -1,10 +1,10 @@
-// Initial function calls
+// Define constants
 
+// START and END define the start and end times for the day planner
 const START = 8;
-const END = 18;
+const END = 19;
 
 populatePlanner(START, END);
-
 
 function populatePlanner(startTime, endTime) {
     // populatePlanner takes a start time and end time (expressed as integers between 1 and 24) and populates the day planner based on stored data
@@ -50,11 +50,11 @@ function populatePlanner(startTime, endTime) {
 
         // Add time column
         var timeCol = $("<div>", {"class": 'col-md-2 time-block hour'});
-        var newTime = $("<p>", {"class": "centerText"})
+        var newTime = $("<p>")
         timeCol.append(newTime);
         
         // For the content column we also assign the text
-        var contentCol = $("<div>", {"class": 'col-md-8'}).text(plannerContent[i].content);
+        var contentCol = $("<textarea>", {"class": 'col-md-8'}).text(plannerContent[i].content);
 
         // Add save column (which is secretly a button, shh)
         var saveCol = $("<button>", {"class": "saveBtn col-md-2"}).text("Save");
@@ -80,12 +80,24 @@ function populatePlanner(startTime, endTime) {
 
         newTime.text(hourContent);
 
-        updatePlannerColors();
+        // ================================
+        //    Update Planner Colors
+        // ================================
+        
+        // Get current time
+        var now = moment().hour();
 
-        
-        
-        
-        
+        // Check if the current hour is ahead of, behind, or equal to the row we're working with and assign the relevant class
+        if (i < now) {
+
+            contentCol.addClass("past");
+        } else if (i === now) {
+
+            contentCol.addClass("present");
+        } else {
+
+            contentCol.addClass("future");
+        }
         
         // Append up the chain
         newRow.append(timeCol);
@@ -94,13 +106,4 @@ function populatePlanner(startTime, endTime) {
         
         $(".container").append(newRow);
     }
-}
-
-
-function updatePlannerColors() {
-
-
-
-
-
 }
